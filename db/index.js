@@ -5,7 +5,7 @@ const CONNECTION_STRING = process.env.DB;
 
 function getDb() {
   return MongoClient
-    .connect(CONNECTION_STRING)
+    .connect(CONNECTION_STRING, { useUnifiedTopology: true })
     .then(client => {
       return client.db('issues');
     })
